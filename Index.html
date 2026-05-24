@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathish Kumar Bhaskar | Generative & Agentic AI Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2C;
+            --accent-cyan: #00F2FE;
+            --accent-blue: #4FACFE;
+            --text-primary: #F3F4F6;
+            --text-secondary: #9CA3AF;
+            --border-color: #1E293B;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Container Section */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 8rem;
+        }
+
+        .hero-mono {
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 30%, #9CA3AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero h2 {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: var(--text-secondary);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .interests-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .interests-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .interests-list {
+            list-style: none;
+        }
+
+        .interests-list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .interests-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        /* Tech Stack Section */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stack-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .stack-category:hover {
+            transform: translateY(-4px);
+        }
+
+        .stack-category h3 {
+            font-size: 1.1rem;
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-left: 0.2rem;
+        }
+
+        .project-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .project-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            #hero h1 { font-size: 2.5rem; }
+            #hero h2 { font-size: 1.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; } /* Kept simple for raw HTML portfolio */
+            .hero-buttons { flex-direction: column; }
+            section { padding: 4rem 1.5rem; }
+            .project-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">&lt;Sathish.AI /&gt;</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#stack">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div>
+            <span class="hero-mono">Hello World, my name is</span>
+            <h1>Sathish Kumar Bhaskar</h1>
+            <h2>Generative and Agentic AI Engineer</h2>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Explore Engineering Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am an AI Engineer completely focused on building, optimizing, and deploying production-ready cognitive workflows. My expertise bridges the gap between deep algorithmic logic and functional software systems, enabling business frameworks to execute complicated execution pathways intelligently and autonomously.
+                </p>
+                <p>
+                    From implementing advanced Retrieval-Augmented Generation (RAG) paradigms to designing multi-layered agent orchestration fabrics, I look at software through the lens of continuous evaluation, scalability, and robust system constraints.
+                </p>
+            </div>
+            <div class="interests-box">
+                <h3>Core Technical Focus</h3>
+                <ul class="interests-list">
+                    <li>Autonomous AI agents</li>
+                    <li>AI reasoning workflows</li>
+                    <li>Context engineering</li>
+                    <li>Memory management in AI</li>
+                    <li>Tool calling architectures</li>
+                    <li>AI observability & Tracing</li>
+                    <li>Human-in-the-loop systems</li>
+                    <li>Production deployment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="stack">
+        <h2 class="section-title">Technical Ecosystem</h2>
+        <div class="stack-grid">
+            <div class="stack-category">
+                <h3>Orchestration & Core</h3>
+                <div class="tags">
+                    <span class="tag">LangChain</span>
+                    <span class="tag">OpenAI Embeddings</span>
+                    <span class="tag">FAISS</span>
+                    <span class="tag">Vector DBs</span>
+                    <span class="tag">LLM Semantics</span>
+                </div>
+            </div>
+            <div class="stack-category">
+                <h3>Monitoring & Eval</h3>
+                <div class="tags">
+                    <span class="tag">LangSmith</span>
+                    <span class="tag">RAGAS Framework</span>
+                    <span class="tag">Grafana</span>
+                    <span class="tag">Prometheus</span>
+                    <span class="tag">AI Observability</span>
+                </div>
+            </div>
+            <div class="stack-category">
+                <h3>DevOps & Cloud</h3>
+                <div class="tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Microsoft Azure</span>
+                    <span class="tag">Containerization</span>
+                    <span class="tag">CI/CD Pipelines</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Engineering Work</h2>
+        <div class="project-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Multi-Agent AI System for Software Testing</h3>
+                    <div class="tags">
+                        <span class="tag">Agentic Architecture</span>
+                        <span class="tag">QA Automation</span>
+                        <span class="tag">Autonomous Workflows</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    An advanced systems-level multi-agent infrastructure designed to completely automate the modern QA lifecycle. By utilizing specialized agents operating with continuous communication loops, the system enhances test coverage while cutting manual dependency barriers.
+                </p>
+                <ul class="project-features">
+                    <li><strong>Requirement Agent:</strong> Parses technical spec assets autonomously.</li>
+                    <li><strong>Test Case & Automation Agents:</strong> Builds test steps and writes execution scripts.</li>
+                    <li><strong>Execution & Defect Agents:</strong> Evaluates active runs and automatically charts structured defect pipelines.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" class="project-link">📂 View Code &rarr;</a>
+                    <a href="#" class="project-link">⚡ Architecture Demo &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Contextual RAG AI-Powered LMS Chatbot</h3>
+                    <div class="tags">
+                        <span class="tag">LangChain</span>
+                        <span class="tag">FAISS</span>
+                        <span class="tag">OpenAI Embeddings</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    An enterprise support chatbot deployed for complex functional and engineering support environments. Implements a dense contextual Retrieval-Augmented Generation structure to process and fetch answers from deep internal documentation indexes.
+                </p>
+                <ul class="project-features">
+                    <li>Substantially diminished engineering hour search blockages across multi-team domains.</li>
+                    <li>Maintains structural context maps to elevate accuracy and isolate semantic lookups.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" class="project-link">📂 View Code &rarr;</a>
+                    <a href="#" class="project-link">⚡ Live Prototype &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Intelligent AI Code Analyzer</h3>
+                    <div class="tags">
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Static Analysis</span>
+                        <span class="tag">Semantic Code Review</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    A multi-language smart review utility constructed to read, map, and flag structural or logical errors across raw source files. The system understands code semantics natively to act as an automated baseline engineer.
+                </p>
+                <ul class="project-features">
+                    <li>Identifies runtime bugs, deep security vulnerabilities, and system performance bottlenecks.</li>
+                    <li>Flags coding standard violations and outputs native inline contextual refactoring proposals.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" class="project-link">📂 View Code &rarr;</a>
+                    <a href="#" class="project-link">⚡ Analyzer Terminal &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>
+                I am actively interested in production-scale AI engineering problems, multi-agent frameworks, and advanced observability deployments. Let's connect.
+            </p>
+            <div class="social-links">
+                <a href="mailto:sthiskumarbhaskar@gmail.com" class="social-btn">📩 Email Me</a>
+                <a href="www.linkedin.com/in/sathishkumarbhaskar" target="_blank" class="social-btn">🔗 LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank" class="social-btn">💻 GitHub</a>
+            </div>
+        </div>
+    </section>
+Vanity URL name
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sathish Kumar Bhaskar. Engineered with dark-mode minimalism.</p>
+    </footer>
+
+</body>
+</html>
